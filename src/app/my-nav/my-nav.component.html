@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container id="agregar" class="sidenav-container">
   <mat-sidenav
     #drawer
     class="sidenav"
@@ -48,13 +48,11 @@
       </button>
       <span></span>
       <mat-nav-list>
-          <a mat-list-item href="/app-index">Home</a>
-          <a mat-list-item href="/add-libro">Libros</a>
-          <a mat-list-item href="#">Books</a>
+       
         </mat-nav-list>
     </mat-toolbar>
     <router-outlet>
-      ...
+     <app-index></app-index>
     </router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

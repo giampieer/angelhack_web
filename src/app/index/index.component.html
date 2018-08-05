@@ -7,7 +7,7 @@
     </mat-form-field>
   </form>
   <h2 style="font-weight: 400">Libros sugeridos |
-    <button mat-stroked-button color="primary">Agregar Nuevo</button>
+    <a mat-stroked-button color="primary" href="#">Agregar Nuevo</a>
   </h2>
   <div *ngIf="libros?.length > 0;else noItems">
     <div *ngFor="let libro of libros" class="collection" style="display: inline-block!important">
@@ -18,7 +18,7 @@
         </mat-card-header>
         <img style="max-width: 216px;height: 294px" mat-card-image src="{{libro.imagen}}">
         <mat-card-actions>
-          <button mat-button>Agregar a Aula</button>
+          <a mat-button href="">Agregar a Aula</a>
         </mat-card-actions>
       </mat-card>
     </div>

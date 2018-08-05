@@ -20,6 +20,7 @@ import { FirestoreService } from './services/firestore.service';
 import { AddLibroComponent } from './add-libro/add-libro.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+
 const appRoutes: Routes = [
   {path: 'app-index', component: IndexComponent},
   {path: 'add-libro', component: AddLibroComponent}

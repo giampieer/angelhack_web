@@ -1,0 +1,39 @@
+.example-card {
+  max-width: 250px;
+  margin: 1%;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+ h1,h2,h3,h4{
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+  }
+  .cuerpo{
+    width: 100%;
+    padding: 3% 2% 4% 2%;
+    box-sizing: border-box;
+  }
+  .mat-toolbar.pie{
+    background: #388E3C;
+    color:#ffffff;
+    font-size: 12px;
+    text-align: center!important;
+    font-weight: 300!important;
+  }
+
+  .mat-stroked-button{
+    color:#388E3C
+  }

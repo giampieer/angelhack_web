@@ -1,0 +1,38 @@
+form {
+    display: flex;
+  
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    padding: 50px;
+    background: #eee;
+    border-radius: 20px;
+  }
+  
+  input#username, input#password {
+    outline: 0;
+    font-size: 20px;
+    padding: 5px 10px;
+    margin: 5px;
+    min-width: 300px;
+  }
+  
+  button#submit {
+    margin: 20px;
+    padding: 10px;
+    color:#fff;
+    width: 330px;
+    background: #E83A4F;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }

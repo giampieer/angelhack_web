@@ -1,0 +1,35 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 300px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+.mat-toolbar.mat-primary{
+  background: #388E3C;
+}
+
+.mat-toolbar-single-row{
+  height: 84px;
+}
+.mat-nav-list a{
+  display: inline-block;
+  color: #ffffff;
+}
+
+.mat-sidenav{
+  width: 300px;
+  box-shadow: none!important;
+}
+
+.example-card {
+  margin: 0 auto;
+  max-width: 200px;
+  box-shadow: none!important;
+}
+
+.example-header-image {
+  background-image: url('../../assets/img/maestra.jpg');
+  background-size: cover;
+}

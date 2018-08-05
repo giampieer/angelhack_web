@@ -4,7 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Item ,Libro, Aula } from '../models/firebase';
 
 import { Observable } from "rxjs/Rx";
-
+import { map } from 'rxjs/operators';
 
 
 
@@ -16,23 +16,30 @@ export class FirestoreService {
   librosCollection: AngularFirestoreCollection<Libro>;
   aulasCollection: AngularFirestoreCollection<Aula>;
 
+  itemDoc: AngularFirestoreDocument<Item>;
+
   items: Observable<Item[]>;
   libros: Observable<Libro[]>;
   aulas: Observable<Aula[]>;
 
   constructor(public afs: AngularFirestore) {
  
+    this.librosCollection = this.afs.collection('libros');
+
     this.items = this.afs.collection('profesor').valueChanges();
     this.libros = this.afs.collection('libros').valueChanges();
     this.aulas = this.afs.collection('aula').valueChanges();
 
-    this.libros = this.afs.collection('aula').snapshotChanges().map(changes => {
-      return changes.map(a =>{
-        const data = a.payload.doc.data() as Aula;
-        data.id = a.payload.doc.id;
-        return data;
-      });
-    });
+
+   // this.libros = this.librosCollection.snapshotChanges().map(changes => {
+   //   return changes.map(a =>{
+   //     const data = a.payload.doc.data() as Libro;
+   //     data.id = a.payload.doc.id;
+   //     return data;
+   //   });
+   // });
+
+
   }
   getItems(){
     return this.items;
@@ -43,4 +50,8 @@ export class FirestoreService {
   getAula(){
     return this.aulas;
   }
+  addLibros(libro : Libro){
+    this.librosCollection.add(libro);
+  }
+  
 }

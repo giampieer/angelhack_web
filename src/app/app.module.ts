@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
+
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -16,6 +18,7 @@ import { environment } from '../environments/environment';
 
 import { FirestoreService } from './services/firestore.service';
 import { AddLibroComponent } from './add-libro/add-libro.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const appRoutes: Routes = [
   {path: 'app-index', component: IndexComponent},
@@ -27,7 +30,8 @@ const appRoutes: Routes = [
     IndexComponent,
     MyNavComponent,
     LoginComponent,
-    AddLibroComponent
+    AddLibroComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

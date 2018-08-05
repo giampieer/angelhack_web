@@ -22,7 +22,7 @@ export class IndexComponent implements OnInit {
       this.items = items;
     })
     this.firebaseService.getLibros().subscribe(libros => {
-      
+      console.log(libros);
       this.libros = libros;
     })
     this.firebaseService.getAula().subscribe(aulas =>{

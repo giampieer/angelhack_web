@@ -1,3 +1,26 @@
-<p>
-  add-libro works!
-</p>
+<app-navbar>
+</app-navbar>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Add Libro</span>
+    <form (ngSubmit)="onSubmit()" class="col s6">
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="text" placeholder="Add Title" [(ngModel)]="libros.titulo" name="Titulo" >
+          <label>Title</label>
+        </div>
+        <div class="input-field col s6">
+            <input type="text" placeholder="Add Autor" [(ngModel)]="libros.autor" name="Autor" >
+            <label>Autor</label>
+        </div>
+        <div class="input-field col s6">
+          <input type="text" placeholder="Add Imagen" [(ngModel)]="libros.imagen" name="Imagen" >
+          <label>Imagen</label>
+        </div>
+        <input type="submit" value="Enviar" class="btn">
+      </div>
+
+    </form>
+  </div>
+</div>

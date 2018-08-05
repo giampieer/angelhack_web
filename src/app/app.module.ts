@@ -22,6 +22,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 const appRoutes: Routes = [
   {path: 'app-index', component: IndexComponent},
+  {path: 'add-libro', component: AddLibroComponent}
 ];
 
 @NgModule({

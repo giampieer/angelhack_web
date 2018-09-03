@@ -1,50 +1,67 @@
-<div class="cuerpo">
-  <form class="example-form">
-    <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>Buscar Libros</mat-label>
-      <input matInput placeholder="Nombre del libro">
-      <mat-icon matSuffix>chrome_reader_mode</mat-icon>
-    </mat-form-field>
-  </form>
-  <h2 style="font-weight: 400">Libros sugeridos |
-    <a mat-stroked-button color="primary" href="#">Agregar Nuevo</a>
-  </h2>
-  <div *ngIf="libros?.length > 0;else noItems">
-    <div *ngFor="let libro of libros" class="collection" style="display: inline-block!important">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>{{libro.titulo}}</mat-card-title>
-          <mat-card-subtitle>{{libro.autor}}</mat-card-subtitle>
-        </mat-card-header>
-        <img style="max-width: 216px;height: 294px" mat-card-image src="{{libro.imagen}}">
-        <mat-card-actions>
-          <a mat-button href="">Agregar a Aula</a>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div>
-  <ng-template #noItems>
-    <hr>
-    <h5>No hay items en la lista</h5>
-  </ng-template>
+<app-nabvar></app-nabvar>
+<div class="row">
+  <div class="col s2 center" style="box-sizing: border-box;padding: 2% 0 0 0;margin: 0" >
+      <div *ngIf="items?.length > 0;else noItems" >
+          <div *ngFor="let item of items" >
+            <img  width="80%" src="assets/img/{{item.foto}}" alt="Foto Maestra">
+            <div class="center">
+              <h2>{{item.nombres}}</h2>
+              <strong> Colegio :</strong> {{item.institucion}}
+        
+            <hr>
+      
+              <a class="waves-effect waves-light btn-large" href="">Editar
+                <i class="material-icons right">mode_edit</i>
+              </a>
 
-  <h2 style="font-weight: 400">Aulas creadas |
-    <button mat-stroked-button color="primary">Agregar Nuevo</button>
-  </h2>
-
-  <div *ngIf="aulas?.length > 0;else noItems">
-    <div *ngFor="let aula of aulas" class="collection" style="display: inline-block!important">
-      <mat-card class="example-card" style="width:400px">
-        <mat-card-header>
-          <mat-card-title>{{aula.codaula}}</mat-card-title>
-          <mat-card-subtitle>{{aula.institucion}}</mat-card-subtitle>
-        </mat-card-header>
-      </mat-card>
-    </div>
+            </div>
+        </div>
+      </div>
   </div>
+  <div class="col s10 " style="box-sizing: border-box;padding: 0;margin: 0">
+      <h4 style="font-weight: 400">Libros sugeridos 
+        <a routerLink="/add-libro" class="btn waves-effect waves-light orange">Agregar Nuevo Curso</a>
+      </h4>
+      <div *ngIf="libros?.length > 0;else noItems">
+        <div *ngFor="let libro of libros" class="col s3" style="display: inline-block!important">
+          <div class="card green center">
+            <div class="card-content white-text">
+              <span class="card-title">{{libro.titulo}}</span>
+              <div>{{libro.autor}}</div>
+            </div>
+            <img style="max-width: 216px;height: 294px" src="{{libro.imagen}}">
+            <div class="card-action">
+              <a class="btn waves-effect waves-light red"  href="#">Agregar a Aula
+                  <i class="material-icons left">add_box</i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noItems>
+        <hr>
+        <h5>No hay items en la lista</h5>
+      </ng-template>
+    </div>
+    <div class="row">
+
+        <div class="col s10 right">
+            <h4 style="font-weight: 400">Aulas creadas |
+              <button  class="btn waves-effect waves-light orange">Agregar Nueva Aula</button>
+            </h4>
+          
+            <div *ngIf="aulas?.length > 0;else noItems">
+              <div *ngFor="let aula of aulas" class="col s3" style="display: inline-block!important">
+                <div class="card green center" >
+                  <div>
+                    <div>{{aula.codaula}}</div>
+                    <div>{{aula.institucion}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
-<mat-toolbar class="pie">
-  <div>
-    Desarrollado por HeroesTech 2018
-  </div>
-</mat-toolbar>

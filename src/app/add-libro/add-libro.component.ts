@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../services/firestore.service';
 import { Libro } from '../models/firebase';
-
+import { NgForm } from '@angular/forms/src/directives/ng_form';
 
 @Component({
   selector: 'app-add-libro',
@@ -9,24 +9,27 @@ import { Libro } from '../models/firebase';
   styleUrls: ['./add-libro.component.css']
 })
 export class AddLibroComponent implements OnInit {
-  libros: Libro = {
-    titulo:'',
-    autor: '',
+
+  libro: Libro={
+    titulo: '',
+    porcentaje: '',
     imagen: '',
-    porcentaje: ''
+    autor: '',
+    fecha: ''
   }
-  constructor(private firebaseService: FirestoreService) { }
+  constructor(private firestoreService: FirestoreService) { }
 
   ngOnInit() {
   }
-
-  onSubmit(){
-    if(this.libros.autor != '' && this.libros.titulo != '' && this.libros.imagen){
-      this.firebaseService.addLibros(this.libros);
-      this.libros.titulo = '';
-      this.libros.autor = '';
-      this.libros.imagen = '';
-    
+  onGuardarLibro(myForm: NgForm){
+    if(myForm.valid == true){
+      const fechaNow = Date.now();
+      this.libro.fecha = fechaNow;
+      this.firestoreService.addLibros(this.libro);
+      myForm.resetForm();
+    }else{
+      console.log('algo va mal');
+      window.alert('termine de ingresar los datos')
     }
   }
 }

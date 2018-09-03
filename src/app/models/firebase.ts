@@ -11,6 +11,7 @@ export interface Libro {
     porcentaje?: string;
     imagen?: string;
     autor?: string;
+    fecha?:any;
   }
 export interface Aula {
     id?: string;

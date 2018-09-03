@@ -31,15 +31,13 @@ export class FirestoreService {
     this.aulas = this.afs.collection('aula').valueChanges();
 
 
-   // this.libros = this.librosCollection.snapshotChanges().map(changes => {
-   //   return changes.map(a =>{
-   //     const data = a.payload.doc.data() as Libro;
-   //     data.id = a.payload.doc.id;
-   //     return data;
-   //   });
-   // });
-
-
+ this.libros = this.librosCollection.snapshotChanges().pipe(
+   map(actions=> actions.map(a => {
+        const data = a.payload.doc.data() as Libro;
+        const id = a.payload.doc.id;
+        return {id, ...data};
+        }))
+      );
   }
   getItems(){
     return this.items;

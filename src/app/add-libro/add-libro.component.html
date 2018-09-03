@@ -1,20 +1,40 @@
+<app-nabvar></app-nabvar>
+<div style="width: 80%;margin: 0 auto;padding-top: 2%;">
+<div class="card">
+    <div class="card-content">
+      <span class="card-title">Nuevo Libro</span>
+      <form  (ngSubmit)="onGuardarLibro(formNew)" #formNew="ngForm" class="col s6" >
+        <div class="row">
 
-  <div class="container">
-    <span class="card-title"><h2>Agregar Libro</h2></span>
-    <form (ngSubmit)="onSubmit()" class="col s6">
-      <div class="row">
-        <div >
-          <input type="text" id="titulo" placeholder="Titulo de Libro"  name="Titulo" >
-        </div>
-        <div>
-            <input type="text" id="autor" placeholder="Nombre de Autor" name="Autor" >
-        </div>
-        <div>
-          <input type="text"  id="imagen" placeholder="Link imagen" name="Imagen" >
-        </div>
-        <button id="submit" type="submit">Registrar Libro</button>
-      </div>
-
-    </form>
+          <div class="input-field col s6">
+            <input [(ngModel)]="libro.titulo" #titulo="ngModel" required minlength="16" maxlength="40"  type="text" name="titulo" id="titulo" placeholder="titulo del Libro">
+      
+            <div *ngIf="titulo.touched && !titulo.valid">
+              <div *ngIf="titulo.errors.required" >Titulo es requerido</div>
+              <div *ngIf="titulo.errors.minlength" >El Titulo debe ser al menos  Caracteres</div>
+            </div>
+          </div>
+          <div class="input-field col s6">
+            <input [(ngModel)]="libro.autor" #autor="ngModel" required minlength="5" maxlength="250" type="text" name="autor" id="autor" placeholder="autor del libro">
+          
+            <div *ngIf="autor.touched && !autor.valid">
+              <div *ngIf="autor.errors.required" >Autor requerida</div>
+              <div *ngIf="autor.errors.minlength" >Autor debe ser al menos de </div>
+            </div>
+          </div>
+          <div class="input-field col s6">
+              <input [(ngModel)]="libro.imagen" #imagen="ngModel" required type="text" name="imagen" id="imagen" placeholder="Link de Imagen Portada">
+     
+              <div *ngIf="imagen.touched && !imagen.valid">
+                  <div *ngIf="imagen.errors.required" >Link de imagen requerida</div>
+                </div>
+          </div>
+          <a  routerLink="/" class="btn waves-effect waves-light red">Volver</a>
+          <button type="submit" class="btn waves-effect waves-light orange right"> Guardar
+              <i class="material-icons">add_circle</i> 
+          </button>
+     </div>
+      </form>
+    </div>
   </div>
-
+  </div>
